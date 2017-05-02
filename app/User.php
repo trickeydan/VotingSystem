@@ -26,4 +26,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $casts = ['admin' => 'boolean'];
+
+    /**
+     * Get the next category that this user hasn't nominated anyone for.
+     *
+     * @return Category|bool
+     */
+    public function getNominationCategory(){
+        //Todo: Make more efficient.
+        foreach (Category::all() as $cat){
+            if(Nomination::whereCategoryId($cat->id)->whereUserId($this->id)->count() == 0) return $cat;
+        }
+        return false;
+    }
 }
