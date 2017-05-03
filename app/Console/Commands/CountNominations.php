@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Category;
 use App\Nomination;
+use App\Nominee;
 use Illuminate\Console\Command;
 use App\User;
 
@@ -40,6 +41,10 @@ class CountNominations extends Command
      */
     public function handle()
     {
+        $this->callSilent('down');
+        $this->info('Deleting any previous nominees');
+        Nominee::getQuery()->delete();
+
         $count = [];
         $this->info('Counting Nomination Votes');
         foreach (Category::all() as $category) {
@@ -60,6 +65,10 @@ class CountNominations extends Command
                 $nominee_info = each($count[$category->id]);
                 $nominee = User::find($nominee_info["key"]);
                 $this->info('      ' . $nominee->name . ' : ' . $nominee_info["value"]);
+                Nominee::create([
+                    'category_id' => $category->id,
+                    'user_id' => $nominee->id,
+                ]);
             }
         }
         $this->info('Nominations Counted and stored in database.');

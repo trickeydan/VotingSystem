@@ -11,7 +11,7 @@
         <div class="jumbotron">
             <h1>Voting Time!</h1>
             <p>It's time to vote for your nominees for "most likely to".</p>
-            <p><a class="btn btn-default" role="button" href="#">Get Started!</a></p>
+            <p><a class="btn btn-default" role="button" href="{{route('vote')}}">Get Started!</a></p>
         </div>
     @elseif(\App\System::mode() == \App\System::MODE_FINISH)
         <div class="jumbotron">

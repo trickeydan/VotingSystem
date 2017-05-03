@@ -26,7 +26,7 @@
                     @if(\App\System::mode() == \App\System::MODE_NOMINATE)
                         <li role="presentation"><a href="{{route('nominate')}}">Nominate</a></li>
                     @elseif(\App\System::mode() == \App\System::MODE_VOTE)
-                        <li role="presentation"><a href="#">Vote</a></li>
+                        <li role="presentation"><a href="{{route('vote')}}">Vote</a></li>
                     @endif
                 @endif
             </ul>

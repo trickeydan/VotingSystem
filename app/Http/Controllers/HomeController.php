@@ -21,8 +21,11 @@ class HomeController extends Controller
     public function action(){
         if(System::mode() == System::MODE_NOMINATE){
             return redirect(route('nominate'));
+        }elseif(System::mode() == System::MODE_VOTE) {
+            return redirect(route('vote'));
         }else{
             return redirect(route('home'));
         }
+
     }
 }

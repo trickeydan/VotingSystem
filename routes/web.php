@@ -23,6 +23,9 @@ Route::group(['middleware' => ['auth','notadmin']],function(){
 
     Route::get('nominate','NominateController@nominate')->middleware('nominate')->name('nominate');
     Route::post('nominate','NominateController@nominatePost')->middleware('nominate')->name('nominate');
+
+    Route::get('vote','VoteController@vote')->middleware('vote')->name('vote');
+    Route::post('vote','VoteController@votePost')->middleware('vote')->name('vote');
 });
 
 

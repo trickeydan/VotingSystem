@@ -41,4 +41,17 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    /**
+     * Get the next category that this user hasn't voted anyone for.
+     *
+     * @return Category|bool
+     */
+    public function getVoteCategory(){
+        //Todo: Make more efficient.
+        foreach (Category::all() as $cat){
+            if(Vote::whereCategoryId($cat->id)->whereUserId($this->id)->count() == 0) return $cat;
+        }
+        return false;
+    }
 }

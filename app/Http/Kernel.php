@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\Nominate;
 use App\Http\Middleware\NotAdmin;
+use App\Http\Middleware\Vote;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -60,6 +61,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
 
         'nominate' => Nominate::class,
+        'vote' => Vote::class,
         'notadmin' => NotAdmin::class,
     ];
 }
