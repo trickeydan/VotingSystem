@@ -28,7 +28,7 @@
     @else
         <h2 class="text-center">Nominate</h2>
         <p class="text-center">You have nominated somebody in all categories. Your nominations cannot be changed at this point.</p>
-        <p class="text-center">The following are your votes:</p>
+        <p class="text-center">The following are your nominees:</p>
         <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -48,7 +48,7 @@
                 @else
                     <tr>
                         <td>
-                            <p>You haven't nominated anybody.</p>
+                            <p>There don't seem to be any categories. How strange!</p>
                         </td>
                     </tr>
 

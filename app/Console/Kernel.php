@@ -2,7 +2,10 @@
 
 namespace App\Console;
 
+use App\Console\Commands\CountNominations;
 use App\Console\Commands\ImportPeople;
+use App\Console\Commands\SetupSystem;
+use App\Console\Commands\SimulateNominations;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -14,7 +17,10 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        ImportPeople::class
+        SetupSystem::class,
+        CountNominations::class,
+
+        SimulateNominations::class,
     ];
 
     /**

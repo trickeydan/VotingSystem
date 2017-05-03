@@ -18,7 +18,7 @@ $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('login', 'Auth\LoginController@login');
 $this->get('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::group(['middleware' => ['auth']],function(){
+Route::group(['middleware' => ['auth','notadmin']],function(){
     Route::get('/action','HomeController@action');
 
     Route::get('nominate','NominateController@nominate')->middleware('nominate')->name('nominate');

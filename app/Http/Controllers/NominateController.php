@@ -27,6 +27,7 @@ class NominateController extends Controller
     public function nominatePost(NominateRequest $request){
         $user = Auth::User();
         if(Nomination::whereCategoryId($request->category)->whereUserId($user->id)->count() > 0) return redirect(route('nominate'))->withErrors('You have already nominated someone for that category!');
+        if(User::find($request->chosen)->admin) return redirect(route('nominate'))->withErrors('You cannot nominate an administrator!');
         Nomination::create([
             'user_id' => $user->id,
             'nominee_id' => $request->chosen,

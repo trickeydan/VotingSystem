@@ -20,10 +20,14 @@
         <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav">
                 <li role="presentation"><a href="{{route('home')}}">Home</a></li>
-                @if(\App\System::mode() == \App\System::MODE_NOMINATE)
-                    <li role="presentation"><a href="{{route('nominate')}}">Nominate</a></li>
-                @elseif(\App\System::mode() == \App\System::MODE_VOTE)
-                    <li role="presentation"><a href="#">Vote</a></li>
+                @if(Auth::Check() && Auth::User()->admin)
+                    <li role="presentation"><a href="#">Control Panel</a></li>
+                @else
+                    @if(\App\System::mode() == \App\System::MODE_NOMINATE)
+                        <li role="presentation"><a href="{{route('nominate')}}">Nominate</a></li>
+                    @elseif(\App\System::mode() == \App\System::MODE_VOTE)
+                        <li role="presentation"><a href="#">Vote</a></li>
+                    @endif
                 @endif
             </ul>
 

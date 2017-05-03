@@ -12,7 +12,13 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Voting System'),
+
+    'reason' => env('APP_REASON','the Competition'),
+
+    'mode'  => env('APP_MODE',0),
+
+    'nomineecount' => env('APP_NOMINEE_COUNT',4),
 
     /*
     |--------------------------------------------------------------------------
