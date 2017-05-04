@@ -3,9 +3,12 @@
 namespace App\Console\Commands;
 
 use App\Category;
+use App\Notifications\AdminNewAccount;
+use App\Notifications\UserWelcome;
 use App\System;
 use App\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Str;
 use League\Csv\Reader;
 
 class SetupSystem extends Command
@@ -50,17 +53,19 @@ class SetupSystem extends Command
         $admin_user->admin = true;
         $admin_user->email = $this->ask('Administrator Email: ');
         $admin_user->name = $this->ask('Administrator Name: ');
-        $admin_user->password = bcrypt($this->secret('Administrator Password: '));
+        $password = $this->secret('Administrator Password: ');
+        $admin_user->password = bcrypt($password);
         $admin_user->save();
         $this->info('Administrator user created.');
+        $admin_user->notify(new AdminNewAccount($password));
 
         $this->info('Importing Users');
         $reader = Reader::createFromPath(storage_path('users.csv'));
         foreach($reader->fetchAll() as $index => $row){
-            User::create([
+            $user = User::create([
                 'name' => $row[0],
                 'email' => $row[1],
-                'password' => bcrypt('password')
+                'password' => bcrypt('Temporary')
             ]);
         }
         $this->info('Imported All Users.');
@@ -75,7 +80,20 @@ class SetupSystem extends Command
 
         $this->callSilent('up');
         $this->info('System live.');
-        //Todo: Add Emails
+
+        $this->info('Emailing Users to inform them that nominations are now open.');
+        $user_count = User::whereAdmin(false)->count();
+        $bar = $this->output->createProgressBar($user_count);
+        foreach (User::whereAdmin(false)->get() as $user){
+            $password = Str::random(10);
+            $user->password = bcrypt($password);
+            $user->save();
+            $user->notify(new UserWelcome($password));
+            $bar->advance();
+        }
+        $bar->finish();
+        echo PHP_EOL;
+        $this->info('Users have been emailed.');
         $this->info('Setup finished.');
     }
 }

@@ -174,6 +174,7 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
         \Collective\Html\HtmlServiceProvider::class,
+        Themsaid\MailPreview\MailPreviewServiceProvider::class,
 
         /*
          * Application Service Providers...

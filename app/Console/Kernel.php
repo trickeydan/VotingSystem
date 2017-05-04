@@ -5,6 +5,7 @@ namespace App\Console;
 use App\Console\Commands\CountNominations;
 use App\Console\Commands\CountVotes;
 use App\Console\Commands\ImportPeople;
+use App\Console\Commands\SendVotingOpen;
 use App\Console\Commands\SetupSystem;
 use App\Console\Commands\SimulateNominations;
 use App\Console\Commands\SimulateVotes;
@@ -22,6 +23,7 @@ class Kernel extends ConsoleKernel
         SetupSystem::class,
         CountNominations::class,
         CountVotes::class,
+        SendVotingOpen::class,
 
         SimulateNominations::class,
         SimulateVotes::class,

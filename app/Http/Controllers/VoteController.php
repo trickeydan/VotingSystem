@@ -29,7 +29,6 @@ class VoteController extends Controller
         $user = Auth::User();
         if(Vote::whereCategoryId($request->category)->whereUserId($user->id)->count() > 0) return redirect(route('vote'))->withErrors('You have already voted in that category!');
         if(User::find($request->chosen)->admin) return redirect(route('vote'))->withErrors('You cannot vote for an administrator!');
-        //Todo: Check if is nominee
         Vote::create([
             'user_id' => $user->id,
             'votee_id' => $request->chosen,
