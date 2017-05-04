@@ -20,6 +20,8 @@ return [
 
     'nomineecount' => env('APP_NOMINEE_COUNT',4),
 
+    'version' => '1.0.0',
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
