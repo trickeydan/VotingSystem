@@ -30,4 +30,24 @@ class NominateRequest extends FormRequest
             'category' => 'required|integer|exists:categories,id',
         ];
     }
+
+    /**
+     * Get the validation messages.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'chosen.required' => 'You must choose a nominee',
+            'chosen.integer'  => 'That nominee is invalid.',
+            'chosen.exists'   => 'That nominee couldn\'t be found.',
+            'chosen.not_in'   => 'That nominee is invalid.',
+
+            'category.required' => 'An error occurred.',
+            'category.integer'  => 'An error occurred.',
+            'category.exists'   => 'An error occurred.'
+
+        ];
+    }
 }

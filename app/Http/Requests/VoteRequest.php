@@ -30,4 +30,24 @@ class VoteRequest extends FormRequest
             'category' => 'required|integer|exists:categories,id',
         ];
     }
+
+    /**
+     * Get the validation messages.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'chosen.required' => 'You must choose a candidate.',
+            'chosen.integer'  => 'That candidate is invalid.',
+            'chosen.exists'   => 'That candidate couldn\'t be found.',
+            'chosen.not_in'   => 'That candidate is invalid.',
+
+            'category.required' => 'An error occurred.',
+            'category.integer'  => 'An error occurred.',
+            'category.exists'   => 'An error occurred.'
+
+        ];
+    }
 }

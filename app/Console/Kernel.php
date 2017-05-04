@@ -3,9 +3,11 @@
 namespace App\Console;
 
 use App\Console\Commands\CountNominations;
+use App\Console\Commands\CountVotes;
 use App\Console\Commands\ImportPeople;
 use App\Console\Commands\SetupSystem;
 use App\Console\Commands\SimulateNominations;
+use App\Console\Commands\SimulateVotes;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -19,8 +21,10 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         SetupSystem::class,
         CountNominations::class,
+        CountVotes::class,
 
         SimulateNominations::class,
+        SimulateVotes::class,
     ];
 
     /**
