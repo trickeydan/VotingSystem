@@ -49,7 +49,7 @@
             <li><a href="https://github.com/trickeydan/VotingSystem">Source</a></li>
             <li><a href="https://github.com/trickeydan/VotingSystem/blob/master/LICENSE">GPLv3</a></li>
         </ul>
-        <p class="copyright">Dan Trickey © {{date('Y')}}</p>
+        <p class="copyright">Dan Trickey © {{date('Y')}} | Version {{config('app.version')}}</p>
     </footer>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
