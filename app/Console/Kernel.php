@@ -4,6 +4,7 @@ namespace App\Console;
 
 use App\Console\Commands\CountNominations;
 use App\Console\Commands\CountVotes;
+use App\Console\Commands\DataExport;
 use App\Console\Commands\ImportPeople;
 use App\Console\Commands\SendVotingOpen;
 use App\Console\Commands\SetupSystem;
@@ -27,6 +28,7 @@ class Kernel extends ConsoleKernel
 
         SimulateNominations::class,
         SimulateVotes::class,
+        DataExport::class,
     ];
 
     /**

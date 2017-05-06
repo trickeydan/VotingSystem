@@ -42,7 +42,7 @@ class VoteRequest extends FormRequest
             'chosen.required' => 'You must choose a candidate.',
             'chosen.integer'  => 'That candidate is invalid.',
             'chosen.exists'   => 'That candidate couldn\'t be found.',
-            'chosen.not_in'   => 'That candidate is invalid.',
+            'chosen.not_in'   => 'You are not allowed to vote for yourself!',
 
             'category.required' => 'An error occurred.',
             'category.integer'  => 'An error occurred.',

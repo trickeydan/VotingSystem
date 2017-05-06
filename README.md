@@ -29,3 +29,5 @@ Released under GPLv3 By D.Trickey
 * Run *php artisan vote:count*
 * The winner for each category is displayed and the system now displays that voting is finished.
      
+You can also run *php artisan vote:export* to get both raw and summary data of all the nominations and votes that have been cast.
+The export command will reveal whom voted for whom and store the export files in *~/storage/export*.
