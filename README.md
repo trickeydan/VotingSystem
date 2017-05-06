@@ -17,14 +17,18 @@ Released under GPLv3 By D.Trickey
     * APP_MODE - The mode that the app is in. Takes several values, see further instructions. Set to 1 (Nomination Mode) initially.
     * APP_NOMINEE_COUNT - The number of nominees that make it to the next round.
     * APP_URL - The base URL of the website. Used in emails.
+    * APP_NOMINATE_DEADLINE - Nomination deadline time in Unix time.
+    * APP_VOTE_DEADLINE - Nomination deadline time in Unix time.
     * Also Database and Email Details
 * Place a users.csv file in the storage directory with the following format: *Name,Email Address*
 * Run the setup command: *php artisan vote:setup* and follow the instructions.
 * The system is now live and users can nominate.
+* The system will cease access once the deadline has passed.
 * When nominations are over, run *php artisan vote:nominate* This will count the nominations and select the most popular people to be put forward.
-* Make note of the output from this command.
+* You may wish to make note of the output from this command.
 * Change APP_MODE to 2 and run *php artisan up* to bring the system live again.
 * Run *php artisan vote:email* to inform users that they can now vote.
+* When the deadline has passed, the system will be unavailable again.
 * When voting is finished, change APP_MODE to 3.
 * Run *php artisan vote:count*
 * The winner for each category is displayed and the system now displays that voting is finished.

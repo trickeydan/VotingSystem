@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\System;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -46,6 +47,7 @@ class UserWelcome extends Notification
             ->line('Nominations have now opened for ' . config('app.reason') . '.')
             ->line('Voting will take place online.')
             ->line('This is the first of two voting stages.')
+            ->line('The deadline for nominations is: ' . System::getNominationDeadlineHuman())
             ->line('Your email is: ' . $notifiable->email)
             ->line('Your password is: ' . $this->password)
             ->action('Go to Voting Website',route('home'));

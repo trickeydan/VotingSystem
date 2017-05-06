@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use App\System;
 
 class VotingOpen extends Notification
 {
@@ -45,6 +46,7 @@ class VotingOpen extends Notification
             ->greeting('Hello, ' . $notifiable->name)
             ->line('Nominations have now finished for ' . config('app.reason') . '.')
             ->line('It is now time to vote for the nominated people.')
+            ->line('The deadline for voting is: ' . System::getVoteDeadlineHuman())
             ->line('Voting will still take place online.')
             ->line('Please find your login details in the previous email.')
             ->action('Go to Voting Website',route('home'));

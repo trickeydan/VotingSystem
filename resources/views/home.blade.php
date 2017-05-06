@@ -5,12 +5,14 @@
         <div class="jumbotron">
             <h1>Nomination Time!</h1>
             <p>It's time to nominate for {{config('app.reason')}}.</p>
+            <p>The deadline for nominations is {{\App\System::getNominationDeadlineHuman()}}.</p>
             <p><a class="btn btn-default" role="button" href="{{route('nominate')}}">Get Started!</a></p>
         </div>
     @elseif(\App\System::mode() == \App\System::MODE_VOTE)
         <div class="jumbotron">
             <h1>Voting Time!</h1>
-            <p>It's time to vote for your nominees for "most likely to".</p>
+            <p>It's time to vote on the nominated people for {{config('app.reason')}}.</p>
+            <p>The deadline for voting is {{\App\System::getVoteDeadlineHuman()}}.</p>
             <p><a class="btn btn-default" role="button" href="{{route('vote')}}">Get Started!</a></p>
         </div>
     @elseif(\App\System::mode() == \App\System::MODE_FINISH)
