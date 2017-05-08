@@ -86,4 +86,19 @@ abstract class System
     public static function getVoteDeadline(){
         return Carbon::createFromTimestampUTC(config('app.vote_deadline'));
     }
+
+    public static function getNominationTurnoutPercent(){
+        $votes = Nomination::all()->count();
+        $catcount = Category::all()->count();
+        $usercount = User::whereAdmin(false)->count();
+        return round(($votes * 100) / ($catcount * $usercount),1);
+    }
+
+
+    public static function getVoteTurnoutPercent(){
+        $votes = Vote::all()->count();
+        $catcount = Category::all()->count();
+        $usercount = User::whereAdmin(false)->count();
+        return round(($votes * 100) / ($catcount * $usercount),1);
+    }
 }
