@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CheckAdmin;
 use App\Http\Middleware\Nominate;
 use App\Http\Middleware\NotAdmin;
 use App\Http\Middleware\Vote;
@@ -63,5 +64,6 @@ class Kernel extends HttpKernel
         'nominate' => Nominate::class,
         'vote' => Vote::class,
         'notadmin' => NotAdmin::class,
+        'admin' => CheckAdmin::class,
     ];
 }

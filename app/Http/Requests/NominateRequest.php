@@ -42,7 +42,7 @@ class NominateRequest extends FormRequest
             'chosen.required' => 'You must choose a nominee',
             'chosen.integer'  => 'That nominee is invalid.',
             'chosen.exists'   => 'That nominee couldn\'t be found.',
-            'chosen.not_in'   => 'That nominee is invalid.',
+            'chosen.not_in'   => 'You aren\'t allowed to nominate yourself!',
 
             'category.required' => 'An error occurred.',
             'category.integer'  => 'An error occurred.',

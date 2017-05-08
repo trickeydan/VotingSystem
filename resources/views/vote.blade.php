@@ -15,6 +15,7 @@
         @endif
         <p class="text-center">Please select the person you would like to vote for the following category:</p>
         <h3 class="text-center">{{$category->title}}</h3>
+        <p class="text-center">The deadline for voting is {{\App\System::getVoteDeadlineHuman()}}.</p>
         <p class="text-center">Once submitted, your votes cannot be changed.</p>
         <div class="form-group text-center">
             {!! Form::label('chosen', 'Vote') !!}
