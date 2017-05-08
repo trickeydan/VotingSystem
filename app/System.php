@@ -87,6 +87,11 @@ abstract class System
         return Carbon::createFromTimestampUTC(config('app.vote_deadline'));
     }
 
+    /**
+     * Get the turnout percentage for nominations
+     *
+     * @return float
+     */
     public static function getNominationTurnoutPercent(){
         $votes = Nomination::all()->count();
         $catcount = Category::all()->count();
@@ -94,7 +99,11 @@ abstract class System
         return round(($votes * 100) / ($catcount * $usercount),1);
     }
 
-
+    /**
+     * Get the turnout percentage for votes.
+     *
+     * @return float
+     */
     public static function getVoteTurnoutPercent(){
         $votes = Vote::all()->count();
         $catcount = Category::all()->count();

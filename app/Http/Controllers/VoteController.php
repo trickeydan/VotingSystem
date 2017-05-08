@@ -25,6 +25,12 @@ class VoteController extends Controller
         return view('vote',compact('category','list'));
     }
 
+    /**
+     * Perform the vote
+     *
+     * @param VoteRequest $request
+     * @return $this|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function votePost(VoteRequest $request){
         $user = Auth::User();
         if(Vote::whereCategoryId($request->category)->whereUserId($user->id)->count() > 0) return redirect(route('vote'))->withErrors('You have already voted in that category!');

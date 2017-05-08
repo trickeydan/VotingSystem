@@ -23,7 +23,7 @@ return [
     'nomination_deadline' => env('APP_NOMINATE_DEADLINE',0),
     'vote_deadline' => env('APP_VOTE_DEADLINE',0),
 
-    'version' => '1.1.0-alpha2',
+    'version' => '1.1.0',
 
     /*
     |--------------------------------------------------------------------------

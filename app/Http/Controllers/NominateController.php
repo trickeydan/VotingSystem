@@ -24,6 +24,12 @@ class NominateController extends Controller
         return view('nominate',compact('category','list','nominations'));
     }
 
+    /**
+     * Perform a nomination
+     *
+     * @param NominateRequest $request
+     * @return $this|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function nominatePost(NominateRequest $request){
         $user = Auth::User();
         if(Nomination::whereCategoryId($request->category)->whereUserId($user->id)->count() > 0) return redirect(route('nominate'))->withErrors('You have already nominated someone for that category!');

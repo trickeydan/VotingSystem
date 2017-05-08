@@ -18,6 +18,11 @@ class HomeController extends Controller
         return view('home');
     }
 
+    /**
+     * Redirect the user to the appropiate page for the current mode.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function action(){
         if(System::mode() == System::MODE_NOMINATE){
             return redirect(route('nominate'));
