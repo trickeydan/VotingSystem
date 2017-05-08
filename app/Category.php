@@ -11,18 +11,38 @@ class Category extends Model
 {
     protected $fillable = ['title'];
 
+    /**
+     * Get the nominees for this category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function nominees(){
         return $this->hasMany('App\Nominee');
     }
 
+    /**
+     * Get the nominations for this category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function nominations(){
         return $this->hasMany('App\Nomination');
     }
 
+    /**
+     * Get the votes for this category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function votes(){
         return $this->hasMany('App\Vote');
     }
 
+    /**
+     * Get an array of eligible people to vote for.
+     *
+     * @return array
+     */
     public function getVotableArray(){
         $array = [];
         foreach ($this->nominees as $nominee){
