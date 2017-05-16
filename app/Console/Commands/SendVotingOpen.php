@@ -13,7 +13,7 @@ class SendVotingOpen extends Command
      *
      * @var string
      */
-    protected $signature = 'vote:email';
+    protected $signature = 'vote:notify:open';
 
     /**
      * The console command description.
