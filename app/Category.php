@@ -44,7 +44,7 @@ class Category extends Model
      * @return array
      */
     public function getVotableArray(){
-        $array = [];
+        $array = ['default' => 'Not Selected'];
         foreach ($this->nominees as $nominee){
             $array[$nominee->user->id] = $nominee->user->name;
         }
