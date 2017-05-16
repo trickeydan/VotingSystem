@@ -21,7 +21,7 @@
             <ul class="nav navbar-nav">
                 <li role="presentation"><a href="{{route('home')}}">Home</a></li>
                 @if(Auth::Check() && Auth::User()->admin)
-                    <li role="presentation"><a href="{{route('admin')}}">Control Panel</a></li>
+                    <li role="presentation"><a href="#">Control Panel</a></li>
                 @else
                     @if(\App\System::mode() == \App\System::MODE_NOMINATE)
                         <li role="presentation"><a href="{{route('nominate')}}">Nominate</a></li>
