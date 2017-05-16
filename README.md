@@ -27,7 +27,8 @@ Released under GPLv3 By D.Trickey
 * When nominations are over, run *php artisan vote:nominate* This will count the nominations and select the most popular people to be put forward.
 * You may wish to make note of the output from this command.
 * Change APP_MODE to 2 and run *php artisan up* to bring the system live again.
-* Run *php artisan vote:email* to inform users that they can now vote.
+* Run *php artisan vote:notify:nominated* to inform users that they have been nominated.
+* Run *php artisan vote:notify:open* to inform users that they can now vote.
 * When the deadline has passed, the system will be unavailable again.
 * When voting is finished, change APP_MODE to 3.
 * Run *php artisan vote:count*

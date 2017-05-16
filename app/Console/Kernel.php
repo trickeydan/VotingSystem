@@ -6,6 +6,7 @@ use App\Console\Commands\CountNominations;
 use App\Console\Commands\CountVotes;
 use App\Console\Commands\DataExport;
 use App\Console\Commands\ImportPeople;
+use App\Console\Commands\NominationNotifySend;
 use App\Console\Commands\SendVotingOpen;
 use App\Console\Commands\SetupSystem;
 use App\Console\Commands\SimulateNominations;
@@ -25,6 +26,7 @@ class Kernel extends ConsoleKernel
         CountNominations::class,
         CountVotes::class,
         SendVotingOpen::class,
+        NominationNotifySend::class,
 
         SimulateNominations::class,
         SimulateVotes::class,
